@@ -215,11 +215,10 @@ namespace ProtoCore.Lang.Replication
                     //This should generally be a collection, so we need to do a one phase unboxing
                     var targets = reducedParams.Select(r => r[index]).ToList();
                     var target = basicList[index];
-                    
+
                     if (!target.IsArray)
                     {
-                        System.Console.WriteLine(
-                            "WARNING: Replication unbox requested on Singleton. Trap: 437AD20D-9422-40A3-BFFD-DA4BAD7F3E5F");
+                        System.Console.WriteLine("WARNING: Replication unbox requested on Singleton. Trap: 437AD20D-9422-40A3-BFFD-DA4BAD7F3E5F");
                         continue;
                     }
 
@@ -232,7 +231,7 @@ namespace ProtoCore.Lang.Replication
                     var arrayStats = new HashSet<StackValue>();
                     foreach (var targetTemp in targets)
                     {
-                        var temp = ArrayUtils.GetTypeExamplesForLayer(targetTemp, runtimeCore).Values.ToList();
+                        var temp = ArrayUtils.GetTypeExamplesForLayer2(targetTemp, runtimeCore).ToList();
                         arrayStats.UnionWith(temp);
                     }
 
@@ -248,7 +247,6 @@ namespace ProtoCore.Lang.Replication
                             reducedParams.Add(newArgs);
                         }
                     }
-
                 }
             }
 

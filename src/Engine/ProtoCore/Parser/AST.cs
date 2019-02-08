@@ -18,9 +18,6 @@
         internal static readonly string BuiltinGetValueAtIndexTypeName = typeof(DesignScript.Builtin.Get).FullName;
         internal static readonly string BuiltinValueAtIndexMethodName = nameof(DesignScript.Builtin.Get.ValueAtIndex);
 
-        internal static readonly string BuiltinValueAtIndexInForLoopMethodName =
-            nameof(DesignScript.Builtin.Get.ValueAtIndexInForLoop);
-
         public Node()
         {
             ID = ++sID;
